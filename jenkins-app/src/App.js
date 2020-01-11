@@ -1,26 +1,31 @@
-import React from 'react';
+import React,{Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import TemperaturePage from './components/temperature'
+
 
 function App() {
   return (
+    <div>
+    <AppBody/>
+  </div> 
+  )
+   
+}
+
+function AppBody(){
+  const [temperature, setTemperature] = React.useState(
+    window.localStorage.getItem("temperature") || "0"
+  );
+  return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <TemperaturePage
+      temperature={temperature}
+      setTemperature={setTemperature}
+     />
     </div>
   );
+
 }
 
 export default App;
