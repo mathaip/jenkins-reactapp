@@ -1,7 +1,11 @@
-import React,{Component} from 'react';
+
+import React from 'react';
+import BasicInfo from './components/basicInfo'
+
 import logo from './logo.svg';
 import './App.css';
 import TemperaturePage from './components/temperature'
+
 
 
 function App() {
@@ -19,10 +23,12 @@ function AppBody(){
   );
   return (
     <div className="App">
+
      <TemperaturePage
       temperature={temperature}
       setTemperature={setTemperature}
      />
+     <BasicInfo/>
     </div>
   );
 
